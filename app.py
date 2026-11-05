@@ -31,3 +31,7 @@ def report(id):
             )
 
     flask.abort(404)
+
+@app.route("/map")
+def map():
+    return flask.render_template("map.html")
