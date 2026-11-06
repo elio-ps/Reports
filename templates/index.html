@@ -1,21 +1,9 @@
-<!doctype html>
-<html lang="fr">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Back office</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='styles/index.css') }}">
-    </head>
-    <body>
-        <nav>
-            <ul>
-                <li><a href="#1" class="active">Entry 1</a></li>
-                <li><a href="#2">Entry 2</a></li>
-                <li><a href="#3">Entry 3</a></li>
-                <li><a href="#4">Entry 4</a></li>
-            </ul>
-        </nav>
+{% extends "base.html" %}
 
-        <main>Content</main>
-    </body>
-</html>
+{% block title %}Accueil{% endblock %}
+
+{% block content %}
+<h1>Plateforme de signalement cyber</h1>
+<p>Centralisez et suivez les signalements de problèmes de cybersécurité.</p>
+<p><a href="{{ url_for('reports') }}">Voir les signalements</a></p>
+{% endblock %}

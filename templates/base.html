@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{% block title %}Accueil{% endblock %} - Signalement cyber</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/index.css') }}">
+        {% block head %}{% endblock %}
+    </head>
+    <body>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}" {% if request.endpoint == 'home' %}class="active"{% endif %}>Accueil</a></li>
+                <li><a href="{{ url_for('reports') }}" {% if request.endpoint in ('reports', 'report') %}class="active"{% endif %}>Signalements</a></li>
+                <li><a href="{{ url_for('map') }}" {% if request.endpoint == 'map' %}class="active"{% endif %}>Carte</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+
+        {% block scripts %}{% endblock %}
+    </body>
+</html>

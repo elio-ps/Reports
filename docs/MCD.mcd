@@ -1,0 +1,24 @@
+% MCD - Cyber incident reporting platform (specifications, section 8.2)
+%
+% Regenerate the diagram (from the repository root):
+%   mocodo --input docs/MCD.mcd --output_dir docs --svg_to png
+%
+% BELONG_TO is 0,1 on the USER side: an administrator works for the service
+% provider and is not attached to any client.
+% CONCERN is kept alongside SUBMIT: an administrator can create a report (A3)
+% without having a client, so the client cannot be derived from the submitter.
+
+USER: user_id [INTEGER], last_name [VARCHAR(100)], first_name [VARCHAR(100)], email [VARCHAR(255)], password_hash [VARCHAR(255)], role [VARCHAR(20)], is_active [BOOLEAN]
+BELONG_TO, 01 USER, 1N CLIENT
+CLIENT: client_id [INTEGER], name [VARCHAR(100)], type [VARCHAR(50)], city [VARCHAR(100)], created_at [DATE]
+:
+
+SUBMIT, 0N USER, 11 REPORT
+:
+CONCERN, 0N CLIENT, 11 REPORT
+:
+
+:
+REPORT: report_id [INTEGER], title [VARCHAR(150)], description [TEXT], incident_at [DATETIME], created_at [DATETIME], latitude [DECIMAL(9,6)], longitude [DECIMAL(9,6)], address [VARCHAR(255)], status [VARCHAR(20)], priority [VARCHAR(20)], follow_up_note [TEXT]
+CLASSIFY, 0N REPORT_TYPE, 11 REPORT
+REPORT_TYPE: type_id [INTEGER], label [VARCHAR(100)], description [TEXT], is_active [BOOLEAN]

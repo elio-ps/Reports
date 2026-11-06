@@ -1,0 +1,40 @@
+REPORTS = [
+    {
+        "id": 1,
+        "title": "Courriels suspects reçus par le secrétariat",
+        "description": "Plusieurs courriels demandent de confirmer un mot de passe sur un faux portail.",
+        "type": "Hameçonnage",
+        "client": "Association Les Calanques",
+        "city": "Toulon",
+        "date": "12/10/2026 09:30",
+        "status": "Nouveau",
+        "priority": None,
+        "note": None,
+    },
+    {
+        "id": 2,
+        "title": "Fichiers chiffrés sur le serveur de partage",
+        "description": "Les documents du service comptable ne s'ouvrent plus et une demande de rançon est apparue.",
+        "type": "Rançongiciel",
+        "client": "Atelier Mistral",
+        "city": "Marseille",
+        "date": "08/10/2026 18:05",
+        "status": "En cours",
+        "priority": "Critique",
+        "note": "Serveur isolé du réseau, restauration des sauvegardes en cours.",
+    },
+    {
+        "id": 3,
+        "title": "Connexion inhabituelle à la messagerie",
+        "description": "Un compte a été utilisé depuis un pays où l'organisation n'a aucune activité.",
+        "type": "Compromission de compte",
+        "client": "Lycée Fictif de Bastia",
+        "city": "Bastia",
+        "date": "29/09/2026 07:45",
+        "status": "Clôturé",
+        "priority": "Moyenne",
+        "note": "Mot de passe réinitialisé et double authentification activée.",
+    },
+]
+
+ISEN_LOCATION = {"lat": 43.1208325, "lng": 5.9389323}

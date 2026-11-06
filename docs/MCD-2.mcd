@@ -1,0 +1,33 @@
+% MCD 2 - Cyber incident reporting platform, with report status history
+%
+% This version goes beyond the specifications (MCD.mcd follows them to the
+% letter): the status history is an addition requested by the client.
+%
+% Regenerate the diagram (from the repository root):
+%   mocodo --input docs/MCD-2.mcd --output_dir docs --svg_to png
+%
+% BELONG_TO is 0,1 on the USER side: an administrator works for the service
+% provider and is not attached to any client.
+% CONCERN is kept alongside SUBMIT: an administrator can create a report (A3)
+% without having a client, so the client cannot be derived from the submitter.
+% REPORT has no status attribute: REPORT_STATUS rows are only ever added, never
+% modified, and the current status is the latest one. TRACK is 1,N on the REPORT
+% side because creating a report also creates its first REPORT_STATUS ("New").
+
+:
+USER: user_id [INTEGER], last_name [VARCHAR(100)], first_name [VARCHAR(100)], email [VARCHAR(255)], password_hash [VARCHAR(255)], role [VARCHAR(20)], is_active [BOOLEAN]
+BELONG_TO, 01 USER, 1N CLIENT
+CLIENT: client_id [INTEGER], name [VARCHAR(100)], type [VARCHAR(50)], city [VARCHAR(100)], created_at [DATE]
+:
+
+ASSIGN, 0N USER, 11 REPORT_STATUS
+SUBMIT, 0N USER, 11 REPORT
+:
+CONCERN, 0N CLIENT, 11 REPORT
+:
+
+REPORT_STATUS: report_status_id [INTEGER], status [VARCHAR(20)], set_at [DATETIME]
+TRACK, 1N REPORT, 11 REPORT_STATUS
+REPORT: report_id [INTEGER], title [VARCHAR(150)], description [TEXT], incident_at [DATETIME], created_at [DATETIME], latitude [DECIMAL(9,6)], longitude [DECIMAL(9,6)], address [VARCHAR(255)], priority [VARCHAR(20)], follow_up_note [TEXT]
+CLASSIFY, 0N REPORT_TYPE, 11 REPORT
+REPORT_TYPE: type_id [INTEGER], label [VARCHAR(100)], description [TEXT], is_active [BOOLEAN]
