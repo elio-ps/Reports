@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Carte{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='dist/leaflet.css') }}">
+{% endblock %}
+
+{% block content %}
+<h1>Carte</h1>
+<div id="map" data-lat="{{ location.lat }}" data-lng="{{ location.lng }}"></div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='dist/leaflet.js') }}"></script>
+<script src="{{ url_for('static', filename='js/map.js') }}"></script>
+{% endblock %}

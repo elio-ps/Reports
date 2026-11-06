@@ -49,5 +49,60 @@ nav li a.active {
 
 main {
     flex: 1;
+    min-width: 0;
     padding: 24px;
+}
+
+h1 {
+    font-size: 22px;
+    margin-bottom: 16px;
+}
+
+main p {
+    margin: 12px 0;
+}
+
+main a {
+    color: #1d4ed8;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+}
+
+th,
+td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #e5e7eb;
+    text-align: left;
+}
+
+dt {
+    font-weight: 600;
+    margin-top: 12px;
+}
+
+#map {
+    height: 500px;
+}
+
+@media (max-width: 700px) {
+    body {
+        flex-direction: column;
+    }
+
+    nav {
+        width: 100%;
+        padding: 0;
+    }
+
+    main {
+        padding: 16px;
+    }
+
+    #map {
+        height: 350px;
+    }
 }

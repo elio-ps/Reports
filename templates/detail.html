@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}{{ report.title }}{% endblock %}
+
+{% block content %}
+<h1>{{ report.title }}</h1>
+
+<dl>
+    <dt>Description</dt>
+    <dd>{{ report.description }}</dd>
+    <dt>Type</dt>
+    <dd>{{ report.type }}</dd>
+    <dt>Client</dt>
+    <dd>{{ report.client }}</dd>
+    <dt>Ville</dt>
+    <dd>{{ report.city }}</dd>
+    <dt>Date et heure des faits</dt>
+    <dd>{{ report.date }}</dd>
+    <dt>Statut</dt>
+    <dd>{{ report.status }}</dd>
+    <dt>Priorité</dt>
+    <dd>{{ report.priority or "Non définie" }}</dd>
+    <dt>Note de suivi</dt>
+    <dd>{{ report.note or "Aucune note pour le moment." }}</dd>
+</dl>
+
+<p><a href="{{ url_for('reports') }}">Retour à la liste</a></p>
+{% endblock %}
