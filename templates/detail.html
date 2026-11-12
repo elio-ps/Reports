@@ -9,20 +9,20 @@
     <dt>Description</dt>
     <dd>{{ report.description }}</dd>
     <dt>Type</dt>
-    <dd>{{ report.type }}</dd>
+    <dd>{{ report.type or "Not set" }}</dd>
     <dt>Client</dt>
-    <dd>{{ report.client }}</dd>
-    <dt>Ville</dt>
-    <dd>{{ report.city }}</dd>
-    <dt>Date et heure des faits</dt>
+    <dd>{{ report.client or "Not set" }}</dd>
+    <dt>City</dt>
+    <dd>{{ report.city or "Not set" }}</dd>
+    <dt>Date and time</dt>
     <dd>{{ report.date }}</dd>
-    <dt>Statut</dt>
+    <dt>Status</dt>
     <dd>{{ report.status }}</dd>
-    <dt>Priorité</dt>
-    <dd>{{ report.priority or "Non définie" }}</dd>
-    <dt>Note de suivi</dt>
-    <dd>{{ report.note or "Aucune note pour le moment." }}</dd>
+    <dt>Priority</dt>
+    <dd>{{ report.priority or "Not set" }}</dd>
+    <dt>Follow-up note</dt>
+    <dd>{{ report.note or "No note yet." }}</dd>
 </dl>
 
-<p><a href="{{ url_for('reports') }}">Retour à la liste</a></p>
+<p><a href="{{ url_for('reports') }}">Back to list</a></p>
 {% endblock %}

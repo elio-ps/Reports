@@ -1,34 +1,36 @@
 {% extends "base.html" %}
 
-{% block title %}Signalements{% endblock %}
+{% block title %}Reports{% endblock %}
 
 {% block content %}
-<h1>Signalements</h1>
+<h1>Reports</h1>
+
+<p><a href="{{ url_for('new_report') }}">New report</a></p>
 
 {% if reports %}
 <table>
     <thead>
         <tr>
-            <th>Titre</th>
+            <th>Title</th>
             <th>Type</th>
-            <th>Ville</th>
-            <th>Statut</th>
+            <th>City</th>
+            <th>Status</th>
         </tr>
     </thead>
     <tbody>
         {% for report in reports %}
         <tr>
             <td><a href="{{ url_for('report', id=report.id) }}">{{ report.title }}</a></td>
-            <td>{{ report.type }}</td>
-            <td>{{ report.city }}</td>
+            <td>{{ report.type or "-" }}</td>
+            <td>{{ report.city or "-" }}</td>
             <td>{{ report.status }}</td>
         </tr>
         {% endfor %}
     </tbody>
 </table>
 {% else %}
-<p>Aucun signalement pour le moment.</p>
+<p>No reports yet.</p>
 {% endif %}
 
-<p><a href="{{ url_for('home') }}">Retour à l'accueil</a></p>
+<p><a href="{{ url_for('home') }}">Back to home</a></p>
 {% endblock %}

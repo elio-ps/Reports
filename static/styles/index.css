@@ -106,3 +106,80 @@ dt {
         height: 350px;
     }
 }
+
+h2 {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.flash {
+    padding: 10px 12px;
+    background: #dcfce7;
+    border: 1px solid #86efac;
+    color: #166534;
+    border-radius: 4px;
+}
+
+.report-form {
+    max-width: 600px;
+    background: #fff;
+    padding: 16px;
+    border-radius: 4px;
+}
+
+.field {
+    margin-bottom: 16px;
+}
+
+.field label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.field input,
+.field textarea {
+    width: 100%;
+    padding: 8px;
+    font: inherit;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+}
+
+.error {
+    color: #b91c1c;
+    margin-top: 4px;
+}
+
+.toggle {
+    display: block;
+    margin-bottom: 16px;
+}
+
+button {
+    padding: 8px 16px;
+    font: inherit;
+    background: #1d4ed8;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.preview {
+    max-width: 600px;
+    margin-top: 16px;
+    padding: 16px;
+    background: #fff;
+    border-left: 3px solid #3b82f6;
+    white-space: pre-wrap;
+}
+
+[hidden] {
+    display: none !important;
+}

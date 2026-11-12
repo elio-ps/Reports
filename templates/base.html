@@ -1,22 +1,29 @@
 <!doctype html>
-<html lang="fr">
+<html lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>{% block title %}Accueil{% endblock %} - Signalement cyber</title>
+        <title>{% block title %}Home{% endblock %} - Cyber Reports</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='styles/index.css') }}">
         {% block head %}{% endblock %}
     </head>
     <body>
         <nav>
             <ul>
-                <li><a href="{{ url_for('home') }}" {% if request.endpoint == 'home' %}class="active"{% endif %}>Accueil</a></li>
-                <li><a href="{{ url_for('reports') }}" {% if request.endpoint in ('reports', 'report') %}class="active"{% endif %}>Signalements</a></li>
-                <li><a href="{{ url_for('map') }}" {% if request.endpoint == 'map' %}class="active"{% endif %}>Carte</a></li>
+                <li><a href="{{ url_for('home') }}" {% if request.endpoint == 'home' %}class="active"{% endif %}>Home</a></li>
+                <li><a href="{{ url_for('reports') }}" {% if request.endpoint in ('reports', 'report') %}class="active"{% endif %}>Reports</a></li>
+                <li><a href="{{ url_for('new_report') }}" {% if request.endpoint == 'new_report' %}class="active"{% endif %}>New report</a></li>
+                <li><a href="{{ url_for('map') }}" {% if request.endpoint == 'map' %}class="active"{% endif %}>Map</a></li>
             </ul>
         </nav>
 
         <main>
+            {% with messages = get_flashed_messages() %}
+            {% for message in messages %}
+            <p class="flash">{{ message }}</p>
+            {% endfor %}
+            {% endwith %}
+
             {% block content %}{% endblock %}
         </main>
 
